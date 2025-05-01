@@ -2,7 +2,7 @@ import Link from "next/link"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Menu, Instagram, Twitter, Facebook, ChevronDown } from "lucide-react"
+import { Menu, Instagram, Twitter, Facebook, ChevronDown, Camera } from "lucide-react"
 
 export default function LandingPage() {
   return (
@@ -11,16 +11,12 @@ export default function LandingPage() {
       <header className="sticky top-0 z-40 w-full border-b bg-background">
         <div className="container flex h-16 items-center justify-between">
           <div className="flex items-center gap-2">
-            <Image
-              src="/placeholder.svg?height=32&width=32"
-              alt="At Ima Logo"
-              width={32}
-              height={32}
-              className="rounded"
-            />
-            <span className="text-xl font-bold">
-              At Ima <span className="text-amber-500">あっといま</span>
-            </span>
+            <div className="flex items-center gap-2">
+              <div className="flex items-center text-xl md:text-2xl font-bold text-amber-500">
+                <Camera className="mr-2 text-amber-600" />
+                At Ima <span className="ml-1 font-light text-muted-foreground text-lg">あっといま</span>
+              </div>
+            </div>
           </div>
 
           {/* デスクトップナビゲーション */}
@@ -79,14 +75,43 @@ export default function LandingPage() {
                   </Button>
                 </div>
               </div>
-              <div className="flex items-center justify-center">
-                <Image
-                  src="https://picsum.photos/seed/family1/550/550"
-                  alt="公園で遊ぶ親子の自然な写真"
-                  width={550}
-                  height={550}
-                  className="rounded-xl object-cover shadow-lg"
-                />
+              <div className="flex items-center justify-center relative">
+                <div className="relative w-[550px] h-[550px]">
+                  {/* メイン画像 */}
+                  <Image
+                    src="https://picsum.photos/seed/family1/550/550"
+                    alt="公園で遊ぶ親子の自然な写真"
+                    width={550}
+                    height={550}
+                    className="rounded-xl object-cover shadow-lg z-10 relative"
+                  />
+
+                  {/* フローティング画像1 */}
+                  <div className="absolute -top-10 -left-16 z-20 transition-transform duration-300 hover:translate-y-2">
+                    <div className="overflow-hidden rounded-lg transform rotate-[-8deg] border-4 border-white shadow-lg">
+                      <Image
+                        src="https://picsum.photos/seed/floating1/200/150"
+                        alt="家族の自然な瞬間"
+                        width={200}
+                        height={150}
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+
+                  {/* フローティング画像2 */}
+                  <div className="absolute -bottom-12 -right-12 z-20 transition-transform duration-300 hover:translate-y-2">
+                    <div className="overflow-hidden rounded-lg transform rotate-[12deg] border-4 border-white shadow-lg">
+                      <Image
+                        src="https://picsum.photos/seed/floating2/180/140"
+                        alt="子どもの笑顔"
+                        width={180}
+                        height={140}
+                        className="object-cover"
+                      />
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -142,7 +167,7 @@ export default function LandingPage() {
                 </div>
               </div>
 
-              {/* 課題3 */}
+              {/* 課題 3*/}
               <div className="group relative overflow-hidden rounded-lg border bg-background p-6 shadow-sm transition-all hover:shadow-md">
                 <div className="flex flex-col items-center gap-4 text-center">
                   <div className="h-48 w-full mb-4 overflow-hidden rounded-lg">
@@ -882,16 +907,12 @@ export default function LandingPage() {
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div className="space-y-4">
               <div className="flex items-center gap-2">
-                <Image
-                  src="/placeholder.svg?height=32&width=32"
-                  alt="At Ima Logo"
-                  width={32}
-                  height={32}
-                  className="rounded"
-                />
-                <span className="text-xl font-bold">
-                  At Ima <span className="text-amber-500">あっといま</span>
-                </span>
+                <div className="flex items-center gap-2">
+                  <div className="flex items-center text-xl font-bold text-amber-500">
+                    <Camera className="mr-2 text-amber-600" />
+                    At Ima <span className="ml-1 font-light text-muted-foreground text-lg">あっといま</span>
+                  </div>
+                </div>
               </div>
               <p className="text-sm text-muted-foreground">
                 子育て世代の新しい思い出作りをサポートします。日常の何気ない瞬間も、家族みんなで楽しみながら残せる、新しい写真体験を。
